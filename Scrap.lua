@@ -269,7 +269,11 @@ function Scrap:LoadTooltip(link, bag, slot)
 end
 
 function Scrap:BelongsToSet()
-	return CanUseEquipmentSets() and GetLine(self.numLines - 1):find(IN_SET)
+	--[[
+		20180718 API function CanUseEquipmentSets removed.
+			Returns whether the player has enabled the equipment manager.
+	--]]
+	return C_EquipmentSet.CanUseEquipmentSets() and GetLine(self.numLines - 1):find(IN_SET)	
 end
 
 function Scrap:IsSoulbound(bag, slot)
